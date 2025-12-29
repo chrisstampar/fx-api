@@ -1,16 +1,17 @@
 """
 Vercel serverless function entry point for FastAPI.
+When framework is set to FastAPI in Vercel dashboard, this file should export the app.
 """
 import sys
 import os
 
 # Add parent directory to path so we can import app
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, parent_dir)
 
 # Import the FastAPI app
 from app.main import app
 
-# For Vercel, we need to export the app directly
-# Vercel should auto-detect it's an ASGI app
+# Export the app - Vercel with FastAPI framework preset should handle this
 handler = app
 
