@@ -12,7 +12,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.openapi.docs import get_swagger_ui_html
-from mangum import Mangum
 
 from app.config import settings
 from app.utils.logging_config import setup_logging, log_request, log_response, log_error

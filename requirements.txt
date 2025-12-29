@@ -12,9 +12,6 @@ packaging>=21.0,<25.0
 # HTTP client for price fetching
 httpx>=0.25.0
 
-# ASGI adapter for Vercel/Lambda
-mangum>=0.17.0
-
 # f(x) Protocol SDK
 fx-sdk>=0.3.0
 
