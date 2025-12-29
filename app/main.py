@@ -6,12 +6,13 @@ This is the entry point for the f(x) Protocol REST API.
 
 import logging
 import time
+import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.openapi.docs import get_swagger_ui_html
-import os
+from mangum import Mangum
 
 from app.config import settings
 from app.utils.logging_config import setup_logging, log_request, log_response, log_error
@@ -229,6 +230,5 @@ app.middleware("http")(add_rate_limit_headers)
 
 # Vercel requires this for serverless functions
 # Use Mangum to wrap FastAPI for Vercel/Lambda compatibility
-from mangum import Mangum
 handler = Mangum(app, lifespan="off")
 
