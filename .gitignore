@@ -54,6 +54,7 @@ Thumbs.db
 # Internal planning and documentation (exclude from public repo)
 api_plan.md
 DEPLOYMENT_CHECKLIST.md
+GITHUB_SETUP.md
 IMPROVEMENTS.md
 INFRASTRUCTURE_REQUIREMENTS.md
 VERCEL_DEPLOYMENT.md
