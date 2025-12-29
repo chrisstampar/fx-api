@@ -1,0 +1,60 @@
+# Vercel ignore file
+# Files and folders to exclude from deployment
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+
+# Development files
+tests.py
+start.sh
+SETUP_TESTING.md
+requirements-dev.txt
+
+# Documentation (keep main README, exclude others)
+api_plan.md
+HTTPS_SETUP_GUIDE.md
+IMPROVEMENTS.md
+INFRASTRUCTURE_REQUIREMENTS.md
+WRITE_OPERATIONS_EXPLAINED.md
+VERCEL_DEPLOYMENT.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files (should be set in Vercel dashboard)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
