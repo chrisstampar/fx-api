@@ -229,6 +229,6 @@ app.middleware("http")(add_rate_limit_headers)
 
 
 # Vercel requires this for serverless functions
-# Use Mangum to wrap FastAPI for Vercel/Lambda compatibility
-handler = Mangum(app, lifespan="off")
+# Export the FastAPI app directly - Vercel will auto-detect it's ASGI
+handler = app
 
