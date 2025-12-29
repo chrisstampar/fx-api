@@ -228,5 +228,13 @@ app.middleware("http")(add_rate_limit_headers)
 
 
 # Vercel requires this for serverless functions
+# Export the app as handler for Vercel serverless functions
 handler = app
+
+# For debugging: Test if app loads correctly
+try:
+    logger.info("FastAPI app initialized successfully")
+    logger.info(f"RPC URLs configured: {settings.rpc_urls_list}")
+except Exception as e:
+    logger.error(f"Error during app initialization: {e}", exc_info=True)
 
