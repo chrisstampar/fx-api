@@ -2,6 +2,13 @@
 
 RESTful API wrapper around the fx-sdk package.
 
+## Production API
+
+**Live API:** https://fx-api-production.up.railway.app
+
+- **API Documentation:** https://fx-api-production.up.railway.app/docs
+- **Health Check:** https://fx-api-production.up.railway.app/v1/health
+
 ## Quick Start
 
 ### Local Development
