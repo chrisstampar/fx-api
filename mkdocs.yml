@@ -1,0 +1,61 @@
+site_name: f(x) Protocol REST API Documentation
+site_description: Complete documentation for the f(x) Protocol REST API
+site_author: Christopher Stampar
+
+repo_name: chrisstampar/fx-api
+repo_url: https://github.com/chrisstampar/fx-api
+edit_uri: edit/main/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: README.md
+  - Quick Start: README.md#quick-start
+  - API Endpoints: README.md#api-endpoints
+  - Features: features.md
+  - Deployment:
+    - Railway: RAILWAY_DEPLOYMENT.md
+    - Vercel: VERCEL_DEPLOYMENT.md
+    - HTTPS Setup: HTTPS_SETUP_GUIDE.md
+  - Development:
+    - Setup & Testing: SETUP_TESTING.md
+    - Write Operations: WRITE_OPERATIONS_EXPLAINED.md
+    - Infrastructure: INFRASTRUCTURE_REQUIREMENTS.md
+  - Testing: tests/README.md
+  - GitHub Setup: GITHUB_SETUP.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - codehilite
+
