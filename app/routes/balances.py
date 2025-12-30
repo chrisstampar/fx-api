@@ -63,8 +63,11 @@ async def get_all_balances(
             balances=result["balances"],
             total_usd_value=result.get("total_usd_value")
         )
-        # Cache for 30 seconds
-        cache_service.set(cache_key, response, ttl=30)
+        # Only cache if we have complete data (including USD value)
+        # This prevents caching incomplete responses that would cause inconsistent results
+        total_usd = result.get("total_usd_value")
+        if total_usd is not None:
+            cache_service.set(cache_key, response, ttl=30)
         return response
     except ContractCallError as e:
         raise HTTPException(

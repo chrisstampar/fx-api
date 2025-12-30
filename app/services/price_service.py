@@ -36,6 +36,10 @@ class PriceService:
         self.sdk_client = sdk_client
         self._price_cache: Dict[str, Decimal] = {}
     
+    def clear_cache(self):
+        """Clear the price cache (useful for ensuring fresh NAV values)."""
+        self._price_cache.clear()
+    
     def get_token_price(self, token_name: str) -> Optional[Decimal]:
         """
         Get USD price for a token.
@@ -67,13 +71,17 @@ class PriceService:
                 except Exception:
                     price = None
             
-            # x-tokens use x_nav
-            elif token_lower in ["xeth", "xcvx", "xwbtc", "xeeth", "xezeth", "xsteth", "xfrxeth"]:
+            # x-tokens use x_nav (except xCVX which uses CVX price)
+            elif token_lower in ["xeth", "xwbtc", "xeeth", "xezeth", "xsteth", "xfrxeth"]:
                 try:
                     nav = self.sdk_client.get_treasury_nav()
                     price = nav.get("x_nav", Decimal("0"))
                 except Exception:
                     price = None
+            
+            # xCVX uses CVX price (not x_nav)
+            elif token_lower == "xcvx":
+                price = self._fetch_coingecko_price("cvx")
             
             # For other tokens (FXN, veFXN, cvxFXN), try to fetch from CoinGecko
             elif token_lower in ["fxn", "vefxn", "cvxfxn"]:
@@ -103,6 +111,7 @@ class PriceService:
             "fxn": "function-x",
             "vefxn": "function-x",  # veFXN typically trades at a discount to FXN
             "cvxfxn": "convex-finance",  # cvxFXN is a Convex token, approximate
+            "cvx": "convex-finance",  # CVX token for xCVX pricing
         }
         
         token_id = coingecko_ids.get(token_name.lower())

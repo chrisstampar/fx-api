@@ -117,10 +117,14 @@ class SDKService:
                 try:
                     from app.services.price_service import PriceService
                     price_service = PriceService(self.client)
+                    # Clear cache to ensure fresh NAV values
+                    price_service.clear_cache()
                     total_usd = price_service.calculate_total_usd_value(balances_dict)
                     result["total_usd_value"] = str(total_usd)
                 except Exception as e:
                     logger.warning(f"Failed to calculate USD value: {e}")
+                    # Set to None to indicate calculation failed
+                    # This prevents caching incomplete responses
                     result["total_usd_value"] = None
             
             return result
