@@ -6,6 +6,9 @@ repo_name: chrisstampar/fx-api
 repo_url: https://github.com/chrisstampar/fx-api
 edit_uri: edit/main/
 
+# Use root directory as docs directory
+docs_dir: "."
+
 theme:
   name: material
   palette:
