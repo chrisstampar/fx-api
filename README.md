@@ -27,16 +27,6 @@ RESTful API wrapper around the fx-sdk package.
    - Docs: http://localhost:8000/docs
    - Health: http://localhost:8000/v1/health
 
-### Deploy to Vercel
-
-See `VERCEL_DEPLOYMENT.md` for detailed instructions.
-
-**Quick steps:**
-1. Push code to GitHub
-2. Connect repo to Vercel
-3. Set environment variables
-4. Deploy!
-
 ## API Endpoints
 
 ### Health
@@ -83,6 +73,5 @@ api/
 │   └── middleware/         # Custom middleware
 ├── tests/                  # Tests
 ├── requirements.txt        # Dependencies
-├── vercel.json            # Vercel config
 └── README.md              # This file
 ```
