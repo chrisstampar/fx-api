@@ -31,19 +31,7 @@ theme:
 
 nav:
   - Home: README.md
-  - Quick Start: README.md#quick-start
-  - API Endpoints: README.md#api-endpoints
-  - Features: features.md
-  - Deployment:
-    - Railway: RAILWAY_DEPLOYMENT.md
-    - Vercel: VERCEL_DEPLOYMENT.md
-    - HTTPS Setup: HTTPS_SETUP_GUIDE.md
-  - Development:
-    - Setup & Testing: SETUP_TESTING.md
-    - Write Operations: WRITE_OPERATIONS_EXPLAINED.md
-    - Infrastructure: INFRASTRUCTURE_REQUIREMENTS.md
-  - Testing: tests/README.md
-  - GitHub Setup: GITHUB_SETUP.md
+  - Complete Documentation: DOCUMENTATION.md
 
 markdown_extensions:
   - pymdownx.highlight:
